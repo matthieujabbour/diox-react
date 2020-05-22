@@ -1,6 +1,6 @@
 {
   "name": "diox-react",
-  "version": "1.0.0",
+  "version": "TRAVIS_TAG",
   "description": "Official diox connector for React",
   "repository": "https://github.com/matthieujabbour/diox-react",
   "bugs": "https://github.com/matthieujabbour/diox-react/issues",
