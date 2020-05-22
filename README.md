@@ -18,11 +18,11 @@ yarn add diox-react
 ## Usage
 
 ```typescript
-// main.js
+// main.jsx
 // --------------------------
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Counter from './Counter.tsx';
+import Counter from './Counter.jsx';
 
 ReactDOM.render(<Counter />, document.body);
 
@@ -40,18 +40,7 @@ store.register('my-module', {
           count: state.count + 1,
         };
       default:
-        return Object.assign({}, state || { count: 0 }};
-    }
-  },
-  dispatcher: ({ mutate, hash }, action) => {
-    switch (action) {
-      case 'incrementAsync':
-        setTimeout(() => {
-          mutate(hash, 'INCREMENT');
-        }, 1000);
-        break;
-      default:
-        break;
+        return { ...state || { count: 0 } };
     }
   },
 });
@@ -59,31 +48,28 @@ store.register('my-module', {
 export default store;
 
 
-// Counter.tsx
+// Counter.jsx
 // --------------------------
 import * as React from 'react';
 import connect from 'diox-react';
-import store from './store.js';
+import store from './store.jsx';
 
 const mapper = {
-  'my-module': newState => ({ count: newState.count }),
+  'my-module': (newState) => ({ count: newState.count }),
 };
 
-export default connect(store, mapper)(({ dispatch }) => class extends React.PureComponent<{}, {
-  count : number;
-}> {
-  public static displayName : string = 'Counter';
-
-  public constructor(props) {
+export default connect(store, mapper)(({ mutate }) => class extends React.PureComponent {
+  constructor(props) {
     super(props);
+    this.state = { count: 0 };
   }
 
-  public doSomething() {
-    dispatch('my-module', 'incrementAsync');
-  },
+  doSomething() {
+    mutate('my-module', 'INCREMENT');
+  }
 
-  public render(): JSX.Element {
-    return  <div onClick={this.doSomething}>{this.state.count}</div>
+  render() {
+    return <button type="button" onClick={this.doSomething}>{this.state.count}</button>;
   }
 });
 ```
