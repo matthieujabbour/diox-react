@@ -12,7 +12,7 @@ Official [diox](https://github.com/matthieujabbour/diox) connector for React.
 [![Downloads](https://img.shields.io/npm/dm/diox-react.svg)](https://www.npmjs.com/package/diox-react)
 
 </div>
-
+<br>
 
 ## Installation
 
