@@ -1,3 +1,7 @@
+<div align="center">
+  <img width="320" height="160" src="https://repository-images.githubusercontent.com/140085588/c5c67780-9dd3-11ea-9a14-8b129c46c06b">
+<br>
+
 # diox-react
 
 Official [diox](https://github.com/matthieujabbour/diox) connector for React.
@@ -6,6 +10,8 @@ Official [diox](https://github.com/matthieujabbour/diox) connector for React.
 [![Coverage Status](https://coveralls.io/repos/github/matthieujabbour/diox-react/badge.svg)](https://coveralls.io/github/matthieujabbour/diox-react)
 [![npm version](https://badge.fury.io/js/diox-react.svg)](https://badge.fury.io/js/diox-react)
 [![Downloads](https://img.shields.io/npm/dm/diox-react.svg)](https://www.npmjs.com/package/diox-react)
+
+</div>
 
 
 ## Installation
